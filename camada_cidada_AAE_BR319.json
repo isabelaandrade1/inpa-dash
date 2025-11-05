@@ -1,0 +1,107 @@
+
+  {
+    "version": "v1",
+  "config": {
+    "visState": {
+      "filters": [],
+      "layers": [
+        {
+          "id": "ucs-layer",
+          "type": "geojson",
+          "config": {
+            "dataId": "ucs",
+            "label": "Unidades de Conservação (ICMBio)",
+            "color": [34, 139, 34],
+            "columns": { "geojson": "geometry" },
+            "isVisible": true
+          }
+        },
+        {
+          "id": "tis-layer",
+          "type": "geojson",
+          "config": {
+            "dataId": "tis",
+            "label": "Terras Indígenas (FUNAI)",
+            "color": [255, 140, 0],
+            "columns": { "geojson": "geometry" },
+            "isVisible": true
+          }
+        },
+        {
+          "id": "prodes-layer",
+          "type": "geojson",
+          "config": {
+            "dataId": "prodes",
+            "label": "Desmatamento Histórico (PRODES/DETER)",
+            "color": [255, 0, 0],
+            "columns": { "geojson": "geometry" },
+            "isVisible": true
+          }
+        },
+        {
+          "id": "queimadas-layer",
+          "type": "point",
+          "config": {
+            "dataId": "queimadas",
+            "label": "Focos de Queimada (INPE)",
+            "color": [255, 215, 0],
+            "columns": { "lat": "latitude", "lng": "longitude" },
+            "isVisible": true
+          }
+        }
+      ],
+      "interactionConfig": {
+        "tooltip": {
+          "fieldsToShow": {
+            "ucs": ["nome", "categoria"],
+            "tis": ["nome", "povo"],
+            "prodes": ["ano", "area_desmatada"],
+            "queimadas": ["data", "municipio"]
+          },
+          "enabled": true
+        }
+      }
+    },
+    "mapState": {
+      "bearing": 0,
+      "latitude": -3.1,
+      "longitude": -60.0,
+      "pitch": 0,
+      "zoom": 5
+    },
+    "mapStyle": { "styleType": "dark" }
+  },
+  "datasets": [
+    {
+      "id": "ucs",
+      "label": "Unidades de Conservação",
+      "color": [34, 139, 34],
+      "geojson": "https://mapas.icmbio.gov.br/geoserver/ows?service=WFS&request=GetFeature&typeName=uc_federal&outputFormat=application/json"
+    },
+    {
+      "id": "tis",
+      "label": "Terras Indígenas",
+      "color": [255, 140, 0],
+      "geojson": "https://terrasindigenas.org.br/api/v1/geojson"
+    },
+    {
+      "id": "prodes",
+      "label": "PRODES/DETER",
+      "color": [255, 0, 0],
+      "geojson": "https://terrabrasilis.dpi.inpe.br/geoserver/ows?service=WFS&request=GetFeature&typeName=prodes_desmatamento&outputFormat=application/json"
+    },
+    {
+      "id": "queimadas",
+      "label": "Focos de Queimada",
+      "color": [255, 215, 0],
+      "api": "https://queimadas.dgi.inpe.br/api/focos"
+    }
+  ],
+  "metadata": {
+    "title": "Camada Cidadã – AAE BR-319",
+    "description": "Mapa público com camadas de risco e áreas protegidas para comunicação cidadã, integrando dados de INPE, ICMBio e FUNAI.",
+    "author": "INPA / MMA",
+    "updated_at": "2025-10-31",
+    "license": "CC-BY 4.0"
+  }
+}
