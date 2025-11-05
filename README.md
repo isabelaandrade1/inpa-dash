@@ -1,4 +1,4 @@
-INPA Dashboard — Divisão de Cooperação e Intercâmbio
+INPA Dashboard - Divisão de Cooperação e Intercâmbio
 ====================================================
 
 Este repositório contém um dashboard interativo (Dash/Plotly) para visualizar acordos, convênios e parcerias do INPA, com dados oriundos de uma planilha pública do Google Sheets e fallback para um arquivo local Excel.
